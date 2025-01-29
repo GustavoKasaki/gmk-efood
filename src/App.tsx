@@ -1,12 +1,13 @@
-import { GlobalCss } from "./styles";
+import Header from './components/Header'
+import { GlobalCss } from './styles'
 
 function App() {
   return (
     <>
       <GlobalCss />
-      <h1>Hello world</h1>
+      <Header />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
