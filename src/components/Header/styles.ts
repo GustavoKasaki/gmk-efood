@@ -16,7 +16,6 @@ export const HeaderBar = styled.header`
 `
 
 export const HeaderTitle = styled.h1`
-  color: ${Colors.amaranth};
   font-size: 36px;
   font-weight: bold;
   width: 540px;

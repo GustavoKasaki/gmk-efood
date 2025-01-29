@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const Colors = {
-  beige: '#FFF8F2',
+  beige: '#FFEBD9',
+  offwhite: '#FFF8F2',
   amaranth: '#E66767',
   white: '#333',
   lightgray: '#a3a3a3',
@@ -15,6 +16,7 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
     list-style: none;
+    color: ${Colors.amaranth};
   }
 
   .container {
