@@ -1,14 +1,14 @@
-import Header from './components/Header'
-import RestaurantList from './components/RestaurantList'
+import { BrowserRouter } from 'react-router-dom'
+
 import { GlobalCss } from './styles'
+import RoutesDom from './routes'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalCss />
-      <Header />
-      <RestaurantList />
-    </>
+      <RoutesDom />
+    </BrowserRouter>
   )
 }
 

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Colors } from '../../styles'
 
 export const HeaderBar = styled.header`
   padding: 40px 0;

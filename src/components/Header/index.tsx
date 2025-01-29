@@ -1,13 +1,16 @@
 import logo from '../../assets/images/logo.png'
 import { HeaderBar, HeaderTitle } from './styles'
 import headerBg from '../../assets/images/header-background.png'
+import { Link } from 'react-router-dom'
 
 const Header = () => (
   <HeaderBar style={{ backgroundImage: `url(${headerBg})` }}>
     <div className="container">
-      <img src={logo} />
+      <Link to={'/'}>
+        <img src={logo} />
+      </Link>
       <HeaderTitle>
-        Enjoy gastronomic experiences in the comfort of your home
+        Gastronomic experiences in the comfort of your home
       </HeaderTitle>
     </div>
   </HeaderBar>
