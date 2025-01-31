@@ -3,10 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 export const Colors = {
   beige: '#FFEBD9',
   offwhite: '#FFF8F2',
-  amaranth: '#E66767',
-  white: '#333',
-  lightgray: '#a3a3a3',
-  green: '#10AC84'
+  amaranth: '#E66767'
 }
 
 export const GlobalCss = createGlobalStyle`

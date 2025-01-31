@@ -1,30 +1,39 @@
-import japanese from '../../assets/images/japanese.png'
 import star from '../../assets/images/star.png'
+import Tag from '../Tag'
+
 import {
   Card,
   CardButton,
   CardContent,
   CardDescription,
-  CardTitle
+  CardTitle,
+  Infos
 } from './styles'
 
-const Restaurant = () => (
+type Props = {
+  category: string[]
+  title: string
+  description: string
+  image: string
+}
+
+const Restaurant = ({ category, title, description, image }: Props) => (
   <Card>
-    <img src={japanese} alt="japanese" />
+    <img src={image} alt={title} />
+    <Infos>
+      {category.map((info) => (
+        <Tag key={info}>{info}</Tag>
+      ))}
+    </Infos>
     <CardContent>
       <CardTitle>
-        <p>Restaurant name</p>
+        <p>{title}</p>
         <div className="rating">
           <p>4,9</p>
           <img src={star} alt="star" />
         </div>
       </CardTitle>
-      <CardDescription>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-        deserunt aliquid voluptatum ipsam consequatur placeat autem assumenda
-        vero porro commodi. Animi officia temporibus ullam rem voluptate neque
-        adipisci, pariatur quaerat?
-      </CardDescription>
+      <CardDescription>{description}</CardDescription>
       <CardButton href="#">Learn more</CardButton>
     </CardContent>
   </Card>

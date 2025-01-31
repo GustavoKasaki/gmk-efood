@@ -1,4 +1,4 @@
-class Restaurant {
+class RestaurantModel {
   id: number
   category: string[]
   title: string
@@ -20,4 +20,4 @@ class Restaurant {
   }
 }
 
-export default Restaurant
+export default RestaurantModel

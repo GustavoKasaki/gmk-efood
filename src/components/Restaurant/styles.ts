@@ -5,10 +5,17 @@ export const Card = styled.li`
   width: 472px;
   border: 1px solid ${Colors.amaranth};
   background-color: #fff;
+  position: relative;
+`
+
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `
 
 export const CardContent = styled.div`
-  padding: 8px;
+  padding: 8px 8px 12px 8px;
 `
 
 export const CardTitle = styled.div`
