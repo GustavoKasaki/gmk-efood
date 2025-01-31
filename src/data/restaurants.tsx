@@ -1,14 +1,11 @@
-import Header from '../../components/Header'
-import RestaurantList from '../../components/RestaurantList'
-import RestaurantModel from '../../models/RestaurantModel'
+import japanese from '../assets/images/restaurants/japanese.png'
+import italian from '../assets/images/restaurants/italian.png'
+import mexican from '../assets/images/restaurants/mexican.png'
+import brazilian from '../assets/images/restaurants/brazilian.png'
+import chinese from '../assets/images/restaurants/chinese.png'
+import arabic from '../assets/images/restaurants/arabic.png'
 
-import japanese from '../../assets/images/japanese.png'
-import italian from '../../assets/images/italian.png'
-import mexican from '../../assets/images/mexican.png'
-import brazilian from '../../assets/images/brazilian.png'
-import chinese from '../../assets/images/chinese.png'
-import arabic from '../../assets/images/arabic.png'
-import Footer from '../../components/Footer'
+import RestaurantModel from '../models/RestaurantModel'
 
 const Restaurants: RestaurantModel[] = [
   {
@@ -61,12 +58,4 @@ const Restaurants: RestaurantModel[] = [
   }
 ]
 
-const Home = () => (
-  <>
-    <Header />
-    <RestaurantList restaurant={Restaurants} />
-    <Footer />
-  </>
-)
-
-export default Home
+export default Restaurants
