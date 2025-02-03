@@ -11,14 +11,12 @@ const Banner = () => {
   const location = useLocation()
   const backgroundImage = location.state?.backgroundImage || ''
   const restaurantName = location.state?.name || 'Restaurant'
+  const categoryName = location.state?.categoryName || 'Category'
 
   return (
     <BannerImg style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="container">
-        <BannerPrices>
-          From <span>R$ 250,00</span> <br />
-          for R$ 99,90
-        </BannerPrices>
+        <BannerPrices>{categoryName}</BannerPrices>
         <BannerTitle>{restaurantName}</BannerTitle>
       </div>
     </BannerImg>

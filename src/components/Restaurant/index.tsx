@@ -44,7 +44,7 @@ const Restaurant = ({
       <CardDescription>{description}</CardDescription>
       <CardButton
         to={`/restaurant/${id}`}
-        state={{ backgroundImage: image, name: title }}
+        state={{ backgroundImage: image, name: title, categoryName: category }}
       >
         Learn more
       </CardButton>
