@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom'
+import { Key } from 'react'
 
 import Dish from '../Dishes'
 import { List, Section } from './styles'
-import { Key } from 'react'
 
 const DishesList = () => {
   const location = useLocation()

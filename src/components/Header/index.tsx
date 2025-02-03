@@ -11,7 +11,9 @@ const Header = ({ showCart }: Props) => (
   <HeaderBar style={{ backgroundImage: `url(${headerBg})` }}>
     {showCart ? (
       <div className="container container-cart">
-        <p>Restaurants</p>
+        <Link to={'/'}>
+          <p>Restaurants</p>
+        </Link>
         <Link to={'/'}>
           <img src={logo} />
         </Link>

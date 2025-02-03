@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom'
 
 import RestaurantModel from '../../models/RestaurantModel'
-import { BannerImg, BannerPrices, BannerTitle } from './styles'
+import { BannerImg, BannerCategory, BannerTitle } from './styles'
 
 export type Props = {
   image: RestaurantModel[]
@@ -16,7 +16,7 @@ const Banner = () => {
   return (
     <BannerImg style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="container">
-        <BannerPrices>{categoryName}</BannerPrices>
+        <BannerCategory>{categoryName}</BannerCategory>
         <BannerTitle>{restaurantName}</BannerTitle>
       </div>
     </BannerImg>

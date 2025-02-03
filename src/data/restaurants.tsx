@@ -3,9 +3,13 @@ import japaneseDishes from './japaneseDishes'
 import brazilian from '../assets/images/restaurants/brazilian.png'
 import brazilianDishes from './brazilianDishes'
 import italian from '../assets/images/restaurants/italian.png'
+import italianDishes from './italianDishes'
 import mexican from '../assets/images/restaurants/mexican.png'
+import mexicanDishes from './mexicanDishes'
 import chinese from '../assets/images/restaurants/chinese.png'
+import chineseDishes from './chineseDishes'
 import arabic from '../assets/images/restaurants/arabic.png'
+import arabicDishes from './arabicDishes'
 
 import RestaurantModel from '../models/RestaurantModel'
 
@@ -28,7 +32,7 @@ const Restaurants: RestaurantModel[] = [
     description:
       'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas, and incredible risottos—all in the comfort of your home. Fast delivery, carefully packaged dishes, and an unforgettable taste.',
     image: italian,
-    dishes: japaneseDishes
+    dishes: italianDishes
   },
   {
     id: 3,
@@ -38,7 +42,7 @@ const Restaurants: RestaurantModel[] = [
     description:
       'Taste of Mexico brings the vibrant flavors of authentic Mexican cuisine straight to your door! Enjoy mouthwatering tacos, sizzling fajitas, and flavorful enchiladas—all made with fresh ingredients and traditional recipes.',
     image: mexican,
-    dishes: japaneseDishes
+    dishes: mexicanDishes
   },
   {
     id: 4,
@@ -58,7 +62,7 @@ const Restaurants: RestaurantModel[] = [
     description:
       'Golden Dragon delivers the best of Chinese cuisine straight to your door! Enjoy crispy spring rolls, savory dumplings, and flavorful stir-fries, all prepared with fresh ingredients and traditional techniques. Fast delivery, expertly packaged meals, and a taste of China in every bite.',
     image: chinese,
-    dishes: japaneseDishes
+    dishes: chineseDishes
   },
   {
     id: 6,
@@ -68,7 +72,7 @@ const Restaurants: RestaurantModel[] = [
     description:
       'Embark on a culinary journey with Oasis Delights! Enjoy authentic Arabic dishes like creamy hummus, tender kebabs, and freshly baked pita bread, all made with rich spices and traditional recipes. Fast delivery, carefully packaged meals, and a taste of the Middle East in every dish.',
     image: arabic,
-    dishes: japaneseDishes
+    dishes: arabicDishes
   }
 ]
 

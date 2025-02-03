@@ -4,8 +4,9 @@ import brigadeiro from '../assets/images/dishes/br-brigadeiro.png'
 import moqueca from '../assets/images/dishes/br-moqueca.png'
 import virado from '../assets/images/dishes/br-virado.png'
 import coxinha from '../assets/images/dishes/br-coxinha.png'
+import Dishes from '../models/Dishes'
 
-const brazilianDishes = [
+const brazilianDishes: Dishes[] = [
   {
     id: 1,
     title: 'Feijoada',

@@ -15,7 +15,7 @@ export const BannerImg = styled.div`
   }
 `
 
-export const BannerPrices = styled.p`
+export const BannerCategory = styled.p`
   font-size: 24px;
   margin-top: 32px;
   color: #fff;
