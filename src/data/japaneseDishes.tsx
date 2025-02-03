@@ -4,8 +4,9 @@ import tempura from '../assets/images/dishes/jp-tempura.png'
 import takoyaki from '../assets/images/dishes/jp-takoyaki.png'
 import okonomiyaki from '../assets/images/dishes/jp-okonomiyaki.png'
 import mochi from '../assets/images/dishes/jp-mochi.png'
+import Dishes from '../models/Dishes'
 
-const japaneseDishes = [
+const japaneseDishes: Dishes[] = [
   {
     id: 1,
     title: 'Sushi',

@@ -5,6 +5,7 @@ class RestaurantModel {
   title: string
   description: string
   image: string
+  dishes: object
 
   constructor(
     id: number,
@@ -12,7 +13,8 @@ class RestaurantModel {
     category: string,
     title: string,
     description: string,
-    image: string
+    image: string,
+    dishes: string[]
   ) {
     this.id = id
     this.isHot = isHot
@@ -20,6 +22,7 @@ class RestaurantModel {
     this.title = title
     this.description = description
     this.image = image
+    this.dishes = dishes
   }
 }
 

@@ -17,6 +17,7 @@ type Props = {
   description: string
   image: string
   id: number
+  dishes: object
 }
 
 const Restaurant = ({
@@ -25,7 +26,8 @@ const Restaurant = ({
   description,
   image,
   id,
-  isHot
+  isHot,
+  dishes
 }: Props) => (
   <Card>
     <img src={image} alt={title} />
@@ -44,7 +46,12 @@ const Restaurant = ({
       <CardDescription>{description}</CardDescription>
       <CardButton
         to={`/restaurant/${id}`}
-        state={{ backgroundImage: image, name: title, categoryName: category }}
+        state={{
+          backgroundImage: image,
+          name: title,
+          categoryName: category,
+          dishesList: dishes
+        }}
       >
         Learn more
       </CardButton>

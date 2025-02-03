@@ -20,6 +20,7 @@ const RestaurantList = ({ restaurant }: Props) => {
               image={restaurant.image}
               id={restaurant.id}
               isHot={restaurant.isHot}
+              dishes={restaurant.dishes}
             />
           ))}
         </List>
