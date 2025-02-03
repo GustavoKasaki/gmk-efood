@@ -11,19 +11,27 @@ import {
 } from './styles'
 
 type Props = {
-  category: string[]
+  category: string
+  isHot: boolean
   title: string
   description: string
   image: string
+  id: number
 }
 
-const Restaurant = ({ category, title, description, image }: Props) => (
+const Restaurant = ({
+  category,
+  title,
+  description,
+  image,
+  id,
+  isHot
+}: Props) => (
   <Card>
     <img src={image} alt={title} />
     <Infos>
-      {category.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
+      {isHot ? <Tag>Hot</Tag> : ''}
+      <Tag>{category}</Tag>
     </Infos>
     <CardContent>
       <CardTitle>
@@ -34,7 +42,12 @@ const Restaurant = ({ category, title, description, image }: Props) => (
         </div>
       </CardTitle>
       <CardDescription>{description}</CardDescription>
-      <CardButton href="#">Learn more</CardButton>
+      <CardButton
+        to={`/restaurant/${id}`}
+        state={{ backgroundImage: image, name: title }}
+      >
+        Learn more
+      </CardButton>
     </CardContent>
   </Card>
 )

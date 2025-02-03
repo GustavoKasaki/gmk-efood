@@ -1,18 +1,21 @@
 class RestaurantModel {
   id: number
-  category: string[]
+  isHot: boolean
+  category: string
   title: string
   description: string
   image: string
 
   constructor(
     id: number,
-    category: string[],
+    isHot: boolean,
+    category: string,
     title: string,
     description: string,
     image: string
   ) {
     this.id = id
+    this.isHot = isHot
     this.category = category
     this.title = title
     this.description = description

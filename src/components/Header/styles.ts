@@ -6,11 +6,17 @@ export const HeaderBar = styled.header`
   .container {
     display: block;
     text-align: center;
+
+    &-cart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+    }
   }
 
   img {
     width: 125px;
-    margin-bottom: 140px;
   }
 `
 
@@ -18,5 +24,5 @@ export const HeaderTitle = styled.h1`
   font-size: 36px;
   font-weight: bold;
   width: 540px;
-  margin: 0 auto;
+  margin: 140px auto 0 auto;
 `

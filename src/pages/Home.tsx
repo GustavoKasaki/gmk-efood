@@ -5,7 +5,7 @@ import Restaurants from '../data/restaurants'
 
 const Home = () => (
   <>
-    <Header />
+    <Header showCart={false} />
     <RestaurantList restaurant={Restaurants} />
     <Footer />
   </>

@@ -14,6 +14,7 @@ export const GlobalCss = createGlobalStyle`
     font-family: Roboto, sans-serif;
     list-style: none;
     color: ${Colors.amaranth};
+    text-decoration: none;
   }
 
   .container {

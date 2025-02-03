@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Colors } from '../../styles'
+import { Link } from 'react-router-dom'
 
 export const Card = styled.li`
   width: 472px;
@@ -41,7 +42,7 @@ export const CardDescription = styled.p`
   margin: 16px 0;
 `
 
-export const CardButton = styled.a`
+export const CardButton = styled(Link)`
   background-color: ${Colors.amaranth};
   color: ${Colors.beige};
   font-size: 14px;

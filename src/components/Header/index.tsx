@@ -3,16 +3,30 @@ import { HeaderBar, HeaderTitle } from './styles'
 import headerBg from '../../assets/images/header-background.png'
 import { Link } from 'react-router-dom'
 
-const Header = () => (
+type Props = {
+  showCart: boolean
+}
+
+const Header = ({ showCart }: Props) => (
   <HeaderBar style={{ backgroundImage: `url(${headerBg})` }}>
-    <div className="container">
-      <Link to={'/'}>
-        <img src={logo} />
-      </Link>
-      <HeaderTitle>
-        Gastronomic experiences in the comfort of your home
-      </HeaderTitle>
-    </div>
+    {showCart ? (
+      <div className="container container-cart">
+        <p>Restaurants</p>
+        <Link to={'/'}>
+          <img src={logo} />
+        </Link>
+        <p>2 item(s) on cart</p>
+      </div>
+    ) : (
+      <div className="container">
+        <Link to={'/'}>
+          <img src={logo} />
+        </Link>
+        <HeaderTitle>
+          Gastronomic experiences in the comfort of your home
+        </HeaderTitle>
+      </div>
+    )}
   </HeaderBar>
 )
 
