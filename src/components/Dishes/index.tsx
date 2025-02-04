@@ -18,7 +18,7 @@ const Dish = ({ title, description, image }: Props) => (
       <img src={image} alt={title} />
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
-      <CardButton href="#">Add to cart</CardButton>
+      <CardButton href="">Add to cart</CardButton>
     </CardContent>
   </Card>
 )
