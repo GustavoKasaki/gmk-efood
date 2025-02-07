@@ -1,23 +1,24 @@
-import { useLocation } from 'react-router-dom'
-
-import RestaurantModel from '../../models/RestaurantModel'
 import { BannerImg, BannerCategory, BannerTitle } from './styles'
+import { RestaurantsType } from '../../pages/Home'
 
-export type Props = {
-  image: RestaurantModel[]
+type Props = {
+  restaurant: RestaurantsType
 }
 
-const Banner = () => {
-  const location = useLocation()
-  const backgroundImage = location.state?.backgroundImage || ''
-  const restaurantName = location.state?.name || 'Restaurant'
-  const categoryName = location.state?.categoryName || 'Category'
+const Banner = ({ restaurant }: Props) => {
+  const capitalizeFirstLetter = (val: string) => {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1)
+  }
+
+  if (!restaurant) {
+    return <h3>Loading...</h3>
+  }
 
   return (
-    <BannerImg style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <BannerImg style={{ backgroundImage: `url(${restaurant.capa})` }}>
       <div className="container">
-        <BannerCategory>{categoryName}</BannerCategory>
-        <BannerTitle>{restaurantName}</BannerTitle>
+        <BannerCategory>{restaurant.tipo}</BannerCategory>
+        <BannerTitle>{capitalizeFirstLetter(restaurant.titulo)}</BannerTitle>
       </div>
     </BannerImg>
   )

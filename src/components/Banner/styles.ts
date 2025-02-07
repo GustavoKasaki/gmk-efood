@@ -6,12 +6,26 @@ export const BannerImg = styled.div`
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    opacity: 50%;
+  }
 
   .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    z-index: 1;
+    position: relative;
   }
 `
 

@@ -12,6 +12,7 @@ import {
 
 type Props = {
   category: string
+  rating: number
   isHot: boolean
   title: string
   description: string
@@ -22,41 +23,44 @@ type Props = {
 
 const Restaurant = ({
   category,
+  rating,
   title,
   description,
   image,
   id,
-  isHot,
-  dishes
-}: Props) => (
-  <Card>
-    <img src={image} alt={title} />
-    <Infos>
-      {isHot ? <Tag>Hot</Tag> : ''}
-      <Tag>{category}</Tag>
-    </Infos>
-    <CardContent>
-      <CardTitle>
-        <p>{title}</p>
-        <div className="rating">
-          <p>4,9</p>
-          <img src={star} alt="star" />
-        </div>
-      </CardTitle>
-      <CardDescription>{description}</CardDescription>
-      <CardButton
-        to={`/restaurant/${id}`}
-        state={{
-          backgroundImage: image,
-          name: title,
-          categoryName: category,
-          dishesList: dishes
-        }}
-      >
-        Learn more
-      </CardButton>
-    </CardContent>
-  </Card>
-)
+  isHot
+}: Props) => {
+  const getDescription = (description: string) => {
+    if (description.length > 250) {
+      return description.slice(0, 247) + '...'
+    }
+    return description
+  }
+
+  const capitalizeFirstLetter = (val: string) => {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1)
+  }
+
+  return (
+    <Card>
+      <img src={image} alt={title} />
+      <Infos>
+        {isHot ? <Tag>Hot</Tag> : ''}
+        <Tag>{capitalizeFirstLetter(category)}</Tag>
+      </Infos>
+      <CardContent>
+        <CardTitle>
+          <p>{title}</p>
+          <div className="rating">
+            <p>{rating}</p>
+            <img src={star} alt="star" />
+          </div>
+        </CardTitle>
+        <CardDescription>{getDescription(description)}</CardDescription>
+        <CardButton to={`/restaurant/${id}`}>Learn more</CardButton>
+      </CardContent>
+    </Card>
+  )
+}
 
 export default Restaurant

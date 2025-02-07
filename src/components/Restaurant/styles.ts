@@ -3,10 +3,16 @@ import { Colors } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export const Card = styled.li`
-  width: 472px;
   border: 1px solid ${Colors.amaranth};
   background-color: #fff;
   position: relative;
+
+  > img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
 `
 
 export const Infos = styled.div`

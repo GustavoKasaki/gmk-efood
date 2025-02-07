@@ -1,12 +1,16 @@
-import RestaurantModel from '../../models/RestaurantModel'
+import { RestaurantsType } from '../../pages/Home'
 import Restaurant from '../Restaurant'
 import { List, Section } from './styles'
 
 type Props = {
-  restaurant: RestaurantModel[]
+  restaurant: RestaurantsType[]
 }
 
 const RestaurantList = ({ restaurant }: Props) => {
+  if (!restaurant) {
+    return <h3>Loading...</h3>
+  }
+
   return (
     <Section>
       <div className="container">
@@ -14,13 +18,14 @@ const RestaurantList = ({ restaurant }: Props) => {
           {restaurant.map((restaurant) => (
             <Restaurant
               key={restaurant.id}
-              title={restaurant.title}
-              category={restaurant.category}
-              description={restaurant.description}
-              image={restaurant.image}
               id={restaurant.id}
-              isHot={restaurant.isHot}
-              dishes={restaurant.dishes}
+              title={restaurant.titulo}
+              category={restaurant.tipo}
+              rating={restaurant.avaliacao}
+              description={restaurant.descricao}
+              image={restaurant.capa}
+              isHot={restaurant.destacado}
+              dishes={restaurant.cardapio}
             />
           ))}
         </List>

@@ -1,35 +1,32 @@
-import { useLocation } from 'react-router-dom'
-import { Key } from 'react'
-
-import Dish from '../Dishes'
+import Dish from '../Dish'
 import { List, Section } from './styles'
+import Banner from '../Banner'
+import { RestaurantsType } from '../../pages/Home'
 
-const DishesList = () => {
-  const location = useLocation()
-  const dishesList = location.state?.dishesList || 'Dishes'
+type Props = {
+  restaurant: RestaurantsType[]
+}
 
+const DishesList = ({ restaurant }: Props) => {
   return (
-    <Section>
-      <div className="container">
-        <List>
-          {dishesList.map(
-            (dishes: {
-              id: Key | null | undefined
-              title: string
-              description: string
-              image: string
-            }) => (
+    <>
+      <Banner restaurant={restaurant} />
+      <Section>
+        <div className="container">
+          <List>
+            {restaurant.map((dish) => (
               <Dish
-                key={dishes.id}
-                title={dishes.title}
-                description={dishes.description}
-                image={dishes.image}
+                key={dish.id}
+                id={dish.id}
+                image={dish.cardapio.foto}
+                title={dish.cardapio.nome}
+                description={dish.cardapio.descricao}
               />
-            )
-          )}
-        </List>
-      </div>
-    </Section>
+            ))}
+          </List>
+        </div>
+      </Section>
+    </>
   )
 }
 
