@@ -13,13 +13,20 @@ type Props = {
   id: number
 }
 
+const getDishDescription = (description: string) => {
+  if (description.length > 135) {
+    return description.slice(0, 132) + '...'
+  }
+  return description
+}
+
 const Dish = ({ image, title, description, id }: Props) => {
   return (
     <Card>
       <CardContent>
         <img src={image} alt={title} />
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription>{getDishDescription(description)}</CardDescription>
         <CardButton to={`/product/${id}`}>Add to cart</CardButton>
       </CardContent>
     </Card>

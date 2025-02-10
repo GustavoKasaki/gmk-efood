@@ -21,6 +21,17 @@ type Props = {
   dishes: object
 }
 
+export const capitalizeFirstLetter = (val: string) => {
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1)
+}
+
+export const getDescription = (description: string) => {
+  if (description.length > 250) {
+    return description.slice(0, 247) + '...'
+  }
+  return description
+}
+
 const Restaurant = ({
   category,
   rating,
@@ -30,17 +41,6 @@ const Restaurant = ({
   id,
   isHot
 }: Props) => {
-  const getDescription = (description: string) => {
-    if (description.length > 250) {
-      return description.slice(0, 247) + '...'
-    }
-    return description
-  }
-
-  const capitalizeFirstLetter = (val: string) => {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1)
-  }
-
   return (
     <Card>
       <img src={image} alt={title} />

@@ -9,6 +9,12 @@ export const Card = styled.li`
 
 export const CardContent = styled.div`
   padding: 8px;
+
+  img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+  }
 `
 
 export const CardTitle = styled.p`
@@ -20,10 +26,10 @@ export const CardTitle = styled.p`
 
 export const CardDescription = styled.p`
   font-size: 14px;
+  line-height: 22px;
   text-align: justify;
   margin: 8px 0;
   color: ${Colors.beige};
-  height: 52px;
 `
 
 export const CardButton = styled(Link)`

@@ -19,7 +19,7 @@ export type RestaurantsType = {
     nome: string
     descricao: string
     porcao: string
-  }
+  }[]
 }
 
 const Home = () => {
