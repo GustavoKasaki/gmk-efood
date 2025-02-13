@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-
 import { priceFormat } from '../DishesList'
 import Button from '../Button'
 
@@ -23,7 +22,7 @@ const Cart = () => {
 
   const getTotalPrice = () => {
     return items.reduce((acc, curr) => {
-      return (acc += curr.price!)
+      return (acc += curr.preco!)
     }, 0)
   }
 
@@ -34,18 +33,18 @@ const Cart = () => {
         <ul>
           {items.map((item) => (
             <CartItem key={item.id}>
-              <img src={item.image} alt={item.name} />
+              <img src={item.foto} alt={item.nome} />
               <div>
-                <h3>{item.name}</h3>
-                <span>{priceFormat(item.price)}</span>
+                <h3>{item.nome}</h3>
+                <span>{priceFormat(item.preco)}</span>
               </div>
               <button type="button" onClick={() => removeItem(item.id)} />
             </CartItem>
           ))}
         </ul>
         <Prices>
-          Total: {priceFormat(getTotalPrice())}{' '}
-          <span>up to 6 interest-free payments</span>
+          <p>Total:</p>
+          <p>{priceFormat(getTotalPrice())}</p>
         </Prices>
         <Button type={'button'} title={'Proceed to checkout'}>
           Proceed to checkout

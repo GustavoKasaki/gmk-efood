@@ -26,3 +26,12 @@ export const HeaderTitle = styled.h1`
   width: 540px;
   margin: 140px auto 0 auto;
 `
+
+export const CartButton = styled.a`
+  display: flex;
+  cursor: pointer;
+
+  img {
+    margin-left: 16px;
+  }
+`

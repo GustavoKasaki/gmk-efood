@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type DishType = {
-  image: string
-  price: number
+export type DishType = {
+  foto: string
+  preco: number
   id: number
-  name: string
-  description: string
-  portion: string
+  nome: string
+  descricao: string
+  porcao: string
 }
 
 type CartState = {

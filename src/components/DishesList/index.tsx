@@ -1,4 +1,10 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { add, DishType, open } from '../../store/reducers/cart'
+import { RestaurantsType } from '../../pages/Home'
+
+import close from '../../assets/images/close.png'
 
 import Dish from '../Dish'
 import {
@@ -10,8 +16,6 @@ import {
   ModalInfo,
   Section
 } from './styles'
-import { RestaurantsType } from '../../pages/Home'
-import close from '../../assets/images/close.png'
 
 type Props = {
   restaurant: RestaurantsType
@@ -19,14 +23,7 @@ type Props = {
 
 interface ModalState {
   isVisible: boolean
-  dish?: {
-    id: number
-    nome: string
-    descricao: string
-    foto: string
-    porcao: string
-    preco: number
-  }
+  dish?: DishType
 }
 
 export const priceFormat = (price = 0) => {
@@ -37,6 +34,13 @@ export const priceFormat = (price = 0) => {
 }
 
 const DishesList = ({ restaurant }: Props) => {
+  const dispatch = useDispatch()
+
+  const addToCart = (dish: DishType) => {
+    dispatch(add(dish))
+    dispatch(open())
+  }
+
   const [modal, setModal] = useState<ModalState>({
     isVisible: false
   })
@@ -83,8 +87,10 @@ const DishesList = ({ restaurant }: Props) => {
               <p>{`Serve ${modal.dish.porcao}`}</p>
               <button
                 onClick={() => {
-                  console.log(`${modal.dish?.nome} added to cart!`)
-                  closeModal()
+                  if (modal.dish) {
+                    addToCart(modal.dish)
+                    closeModal()
+                  }
                 }}
               >
                 Add to cart - <span>{priceFormat(modal.dish.preco)}</span>

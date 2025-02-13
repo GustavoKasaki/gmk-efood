@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import close from '../../assets/images/close.png'
+import trash from '../../assets/images/trash.png'
 
 import { Colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
@@ -37,29 +37,19 @@ export const Sidebar = styled.aside`
   padding: 40px 16px 0 16px;
   max-width: 360px;
   width: 100%;
+  overflow-y: auto;
 
   ${ButtonContainer} {
     max-width: 100%;
     width: 100%;
-  }
-`
-
-export const Prices = styled.p`
-  font-weight: bold;
-  font-size: 14px;
-  color: ${Colors.beige};
-  margin-bottom: 24px;
-
-  span {
-    display: block;
-    font-size: 12px;
-    color: ${Colors.amaranth};
+    margin-bottom: 24px;
   }
 `
 
 export const CartItem = styled.li`
   display: flex;
-  padding: 8px 0;
+  padding: 8px;
+  margin-bottom: 16px;
   border-bottom: 1px solid ${Colors.amaranth};
   background-color: ${Colors.beige};
   position: relative;
@@ -68,17 +58,17 @@ export const CartItem = styled.li`
     width: 80px;
     height: 80px;
     object-fit: cover;
-    margin-right: 24px;
+    margin-right: 8px;
   }
 
   h3 {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
+    margin-bottom: 16px;
   }
 
   span {
     display: block;
-    font-weight: bold;
     font-size: 14px;
   }
 
@@ -87,14 +77,27 @@ export const CartItem = styled.li`
   }
 
   button {
-    background-image: url(${close});
+    background-image: url(${trash});
+    background-size: contain;
     background-color: transparent;
     width: 16px;
     height: 16px;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 8px;
-    right: 0;
+    bottom: 8px;
+    right: 8px;
+  }
+`
+
+export const Prices = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 16px 0;
+
+  p {
+    font-weight: bold;
+    font-size: 14px;
+    color: ${Colors.beige};
   }
 `
