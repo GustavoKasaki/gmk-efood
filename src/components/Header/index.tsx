@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
+
 import logo from '../../assets/images/logo.png'
 import { HeaderBar, HeaderTitle } from './styles'
 import headerBg from '../../assets/images/header-background.png'
-import { Link } from 'react-router-dom'
 
 type Props = {
   showCart: boolean

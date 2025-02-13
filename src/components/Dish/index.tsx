@@ -1,10 +1,5 @@
-import {
-  Card,
-  CardButton,
-  CardContent,
-  CardDescription,
-  CardTitle
-} from './styles'
+import Button from '../Button'
+import { Card, CardContent, CardDescription, CardTitle } from './styles'
 
 type Props = {
   image: string
@@ -14,8 +9,8 @@ type Props = {
 }
 
 const getDishDescription = (description: string) => {
-  if (description.length > 135) {
-    return description.slice(0, 132) + '...'
+  if (description.length > 140) {
+    return description.slice(0, 137) + '...'
   }
   return description
 }
@@ -27,7 +22,9 @@ const Dish = ({ image, title, description, addToCart }: Props) => {
         <img src={image} alt={title} />
         <CardTitle>{title}</CardTitle>
         <CardDescription>{getDishDescription(description)}</CardDescription>
-        <CardButton onClick={addToCart}>Add to cart</CardButton>
+        <Button onClick={addToCart} type={'button'} title={title}>
+          Add to cart
+        </Button>
       </CardContent>
     </Card>
   )

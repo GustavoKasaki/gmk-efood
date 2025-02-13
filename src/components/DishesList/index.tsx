@@ -87,8 +87,7 @@ const DishesList = ({ restaurant }: Props) => {
                   closeModal()
                 }}
               >
-                Adicionar ao carrinho -{' '}
-                <span>{priceFormat(modal.dish.preco)}</span>
+                Add to cart - <span>{priceFormat(modal.dish.preco)}</span>
               </button>
               <CloseBtn src={close} alt="Close" onClick={closeModal} />
             </ModalInfo>

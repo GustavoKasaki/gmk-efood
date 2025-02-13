@@ -1,14 +1,8 @@
 import star from '../../assets/images/star.png'
+import Button from '../Button'
 import Tag from '../Tag'
 
-import {
-  Card,
-  CardButton,
-  CardContent,
-  CardDescription,
-  CardTitle,
-  Infos
-} from './styles'
+import { Card, CardContent, CardDescription, CardTitle, Infos } from './styles'
 
 type Props = {
   category: string
@@ -57,7 +51,9 @@ const Restaurant = ({
           </div>
         </CardTitle>
         <CardDescription>{getDescription(description)}</CardDescription>
-        <CardButton to={`/restaurant/${id}`}>Learn more</CardButton>
+        <Button to={`/restaurant/${id}`} type="link" title={title}>
+          Learn more
+        </Button>
       </CardContent>
     </Card>
   )
