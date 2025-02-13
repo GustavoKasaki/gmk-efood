@@ -10,7 +10,7 @@ type Props = {
   image: string
   title: string
   description: string
-  id: number
+  addToCart: () => void
 }
 
 const getDishDescription = (description: string) => {
@@ -20,14 +20,14 @@ const getDishDescription = (description: string) => {
   return description
 }
 
-const Dish = ({ image, title, description, id }: Props) => {
+const Dish = ({ image, title, description, addToCart }: Props) => {
   return (
     <Card>
       <CardContent>
         <img src={image} alt={title} />
         <CardTitle>{title}</CardTitle>
         <CardDescription>{getDishDescription(description)}</CardDescription>
-        <CardButton to={`/product/${id}`}>Add to cart</CardButton>
+        <CardButton onClick={addToCart}>Add to cart</CardButton>
       </CardContent>
     </Card>
   )

@@ -60,12 +60,12 @@ const DishesList = ({ restaurant }: Props) => {
         <div className="container">
           <List>
             {restaurant.cardapio.map((dish) => (
-              <Item key={dish.id} onClick={() => openModal(dish)}>
+              <Item key={dish.id}>
                 <Dish
-                  id={dish.id}
                   image={dish.foto}
                   title={dish.nome}
                   description={dish.descricao}
+                  addToCart={() => openModal(dish)}
                 />
               </Item>
             ))}
@@ -83,9 +83,7 @@ const DishesList = ({ restaurant }: Props) => {
               <p>{`Serve ${modal.dish.porcao}`}</p>
               <button
                 onClick={() => {
-                  console.log(
-                    `Prato ${modal.dish?.nome} adicionado ao carrinho!`
-                  )
+                  console.log(`${modal.dish?.nome} added to cart!`)
                   closeModal()
                 }}
               >

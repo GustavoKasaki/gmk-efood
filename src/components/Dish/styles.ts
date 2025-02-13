@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { Colors } from '../../styles'
@@ -32,9 +31,10 @@ export const CardDescription = styled.p`
   color: ${Colors.beige};
 `
 
-export const CardButton = styled(Link)`
+export const CardButton = styled.a`
   background-color: ${Colors.beige};
   color: ${Colors.amaranth};
+  cursor: pointer;
   font-size: 14px;
   font-weight: bold;
   line-height: 16px;
