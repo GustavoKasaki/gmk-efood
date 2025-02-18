@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { add, DishType, open } from '../../store/reducers/cart'
-import { RestaurantsType } from '../../pages/Home'
 
 import close from '../../assets/images/close.png'
 

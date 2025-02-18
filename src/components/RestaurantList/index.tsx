@@ -1,4 +1,3 @@
-import { RestaurantsType } from '../../pages/Home'
 import Restaurant from '../Restaurant'
 import { List, Section } from './styles'
 

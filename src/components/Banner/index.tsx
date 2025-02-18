@@ -1,5 +1,4 @@
 import { BannerImg, BannerCategory, BannerTitle } from './styles'
-import { RestaurantsType } from '../../pages/Home'
 
 type Props = {
   restaurant: RestaurantsType

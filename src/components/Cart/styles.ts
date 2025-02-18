@@ -6,6 +6,10 @@ import { Colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 import { TagContainer } from '../Tag/styles'
 
+type Width = {
+  maxWidth?: string
+}
+
 export const Overlay = styled.div`
   position: absolute;
   top: 0;
@@ -42,7 +46,7 @@ export const Sidebar = styled.aside`
   ${ButtonContainer} {
     max-width: 100%;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
   }
 `
 
@@ -93,11 +97,72 @@ export const CartItem = styled.li`
 export const Prices = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 40px 0 16px 0;
+  margin-top: 40px;
+  margin-bottom: 16px;
 
   p {
     font-weight: bold;
     font-size: 14px;
     color: ${Colors.beige};
+  }
+`
+
+export const CheckoutForm = styled.form`
+  margin: 0 8px;
+
+  h3 {
+    color: ${Colors.offwhite};
+    margin-bottom: 16px;
+  }
+`
+
+export const Row = styled.div`
+  display: flex;
+  column-gap: 34px;
+
+  &.margin-bottom {
+    margin-bottom: 24px;
+  }
+`
+
+export const InputGroup = styled.div<Width>`
+  max-width: ${(props) => props.maxWidth || 'auto'};
+  flex: auto;
+  margin-bottom: 8px;
+
+  label {
+    color: ${Colors.offwhite};
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input {
+    color: #000;
+    background-color: ${Colors.beige};
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid ${Colors.beige};
+    width: 100%;
+
+    &.error {
+      border: 1px solid red;
+    }
+  }
+`
+
+export const OrderMessage = styled.div`
+  h3 {
+    color: ${Colors.offwhite};
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: ${Colors.offwhite};
+    font-size: 14px;
+    margin-bottom: 16px;
   }
 `
