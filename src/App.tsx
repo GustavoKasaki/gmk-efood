@@ -12,8 +12,8 @@ function App() {
       <BrowserRouter>
         <GlobalCss />
         <RoutesDom />
+        <Cart />
       </BrowserRouter>
-      <Cart />
     </Provider>
   )
 }

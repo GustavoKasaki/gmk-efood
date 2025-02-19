@@ -50,6 +50,19 @@ export const Sidebar = styled.aside`
   }
 `
 
+export const EmptyCart = styled.div`
+  text-align: center;
+  width: 100%;
+
+  img {
+    max-width: 100px;
+  }
+
+  p {
+    color: ${Colors.offwhite};
+  }
+`
+
 export const CartItem = styled.li`
   display: flex;
   padding: 8px;
@@ -147,7 +160,7 @@ export const InputGroup = styled.div<Width>`
     width: 100%;
 
     &.error {
-      border: 1px solid red;
+      border: 2px solid red;
     }
   }
 `
@@ -165,4 +178,9 @@ export const OrderMessage = styled.div`
     font-size: 14px;
     margin-bottom: 16px;
   }
+`
+
+export const ErrorText = styled.p`
+  font-size: 14px;
+  color: ${Colors.offwhite};
 `
