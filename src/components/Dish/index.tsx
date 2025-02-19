@@ -1,6 +1,6 @@
 import Button from '../Button'
 
-import { Card, CardContent, CardDescription, CardTitle } from './styles'
+import * as S from './styles'
 
 type Props = {
   image: string
@@ -18,16 +18,16 @@ const getDishDescription = (description: string) => {
 
 const Dish = ({ image, title, description, addToCart }: Props) => {
   return (
-    <Card>
-      <CardContent>
+    <S.Card>
+      <S.CardContent>
         <img src={image} alt={title} />
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{getDishDescription(description)}</CardDescription>
+        <S.CardTitle>{title}</S.CardTitle>
+        <S.CardDescription>{getDishDescription(description)}</S.CardDescription>
         <Button onClick={addToCart} type={'button'} title={title}>
           Add to cart
         </Button>
-      </CardContent>
-    </Card>
+      </S.CardContent>
+    </S.Card>
   )
 }
 

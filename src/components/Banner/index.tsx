@@ -1,4 +1,4 @@
-import { BannerImg, BannerCategory, BannerTitle } from './styles'
+import * as S from './styles'
 
 type Props = {
   restaurant: RestaurantsType
@@ -10,12 +10,14 @@ const capitalizeFirstLetter = (val: string) => {
 
 const Banner = ({ restaurant }: Props) => {
   return (
-    <BannerImg style={{ backgroundImage: `url(${restaurant.capa})` }}>
+    <S.BannerImg style={{ backgroundImage: `url(${restaurant.capa})` }}>
       <div className="container">
-        <BannerCategory>{restaurant.tipo}</BannerCategory>
-        <BannerTitle>{capitalizeFirstLetter(restaurant.titulo)}</BannerTitle>
+        <S.BannerCategory>{restaurant.tipo}</S.BannerCategory>
+        <S.BannerTitle>
+          {capitalizeFirstLetter(restaurant.titulo)}
+        </S.BannerTitle>
       </div>
-    </BannerImg>
+    </S.BannerImg>
   )
 }
 

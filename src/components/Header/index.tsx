@@ -7,7 +7,7 @@ import { open } from '../../store/reducers/cart'
 import logo from '../../assets/images/logo.png'
 import headerBg from '../../assets/images/header-background.png'
 
-import { CartButton, HeaderBar, HeaderTitle } from './styles'
+import * as S from './styles'
 
 type Props = {
   showCart: boolean
@@ -22,7 +22,7 @@ const Header = ({ showCart }: Props) => {
   }
 
   return (
-    <HeaderBar style={{ backgroundImage: `url(${headerBg})` }}>
+    <S.HeaderBar style={{ backgroundImage: `url(${headerBg})` }}>
       {showCart ? (
         <div className="container container-cart">
           <Link to={'/'}>
@@ -31,21 +31,21 @@ const Header = ({ showCart }: Props) => {
           <Link to={'/'}>
             <img src={logo} />
           </Link>
-          <CartButton onClick={openCart}>
+          <S.CartButton onClick={openCart}>
             {items.length} item(s) on cart
-          </CartButton>
+          </S.CartButton>
         </div>
       ) : (
         <div className="container">
           <Link to={'/'}>
             <img src={logo} />
           </Link>
-          <HeaderTitle>
+          <S.HeaderTitle>
             Gastronomic experiences in the comfort of your home
-          </HeaderTitle>
+          </S.HeaderTitle>
         </div>
       )}
-    </HeaderBar>
+    </S.HeaderBar>
   )
 }
 

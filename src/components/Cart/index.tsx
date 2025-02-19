@@ -12,18 +12,7 @@ import { priceFormat } from '../DishesList'
 import Button from '../Button'
 import basket from '../../assets/images/basket.svg'
 
-import {
-  CartContainer,
-  CartItem,
-  CheckoutForm,
-  EmptyCart,
-  InputGroup,
-  OrderMessage,
-  Overlay,
-  Prices,
-  Row,
-  Sidebar
-} from './styles'
+import * as S from './styles'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -167,19 +156,19 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <Sidebar>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCart} />
+      <S.Sidebar>
         {items.length === 0 ? (
-          <EmptyCart>
+          <S.EmptyCart>
             <img src={basket} alt="Shopping basket" />
             <p>Your cart is empty!</p>
-          </EmptyCart>
+          </S.EmptyCart>
         ) : (
           <>
             {isSuccess && data ? (
               <>
-                <OrderMessage>
+                <S.OrderMessage>
                   <h3>Order complete - {data.orderId}</h3>
                   <p>
                     We are happy to inform you that your order is already being
@@ -198,7 +187,7 @@ const Cart = () => {
                     We hope you enjoy a delicious and pleasant dining
                     experience. Bon appétit!
                   </p>
-                </OrderMessage>
+                </S.OrderMessage>
                 <Button
                   type="button"
                   title={'Click here to finish the purchase'}
@@ -213,7 +202,7 @@ const Cart = () => {
                   <>
                     <ul>
                       {items.map((item) => (
-                        <CartItem key={item.id}>
+                        <S.CartItem key={item.id}>
                           <img src={item.foto} alt={item.nome} />
                           <div>
                             <h3>{item.nome}</h3>
@@ -223,13 +212,13 @@ const Cart = () => {
                             type="button"
                             onClick={() => removeItem(item.id)}
                           />
-                        </CartItem>
+                        </S.CartItem>
                       ))}
                     </ul>
-                    <Prices>
+                    <S.Prices>
                       <p>Total:</p>
                       <p>{priceFormat(getTotalPrice())}</p>
-                    </Prices>
+                    </S.Prices>
                     <Button
                       type="button"
                       title="Proceed to checkout"
@@ -240,102 +229,112 @@ const Cart = () => {
                   </>
                 )}
 
-                <CheckoutForm onSubmit={form.handleSubmit}>
+                <S.CheckoutForm onSubmit={form.handleSubmit}>
                   {checkoutStep === 1 && (
                     <>
                       <h3>Delivery info</h3>
-                      <InputGroup>
-                        <label htmlFor="deliveryName">Who will receive?</label>
-                        <input
-                          id="deliveryName"
-                          placeholder="Name"
-                          type="text"
-                          name="deliveryName"
-                          value={form.values.deliveryName}
-                          onChange={form.handleChange}
-                          onBlur={form.handleBlur}
-                          className={
-                            checkInputHasError('deliveryName') ? 'error' : ''
-                          }
-                        />
-                      </InputGroup>
-                      <InputGroup>
-                        <label htmlFor="address">Address:</label>
-                        <input
-                          id="address"
-                          placeholder="Street / avenue"
-                          type="text"
-                          name="address"
-                          value={form.values.address}
-                          onChange={form.handleChange}
-                          onBlur={form.handleBlur}
-                          className={
-                            checkInputHasError('address') ? 'error' : ''
-                          }
-                        />
-                      </InputGroup>
-                      <InputGroup>
-                        <label htmlFor="city">City:</label>
-                        <input
-                          id="city"
-                          placeholder="City"
-                          type="text"
-                          name="city"
-                          value={form.values.city}
-                          onChange={form.handleChange}
-                          onBlur={form.handleBlur}
-                          className={checkInputHasError('city') ? 'error' : ''}
-                        />
-                      </InputGroup>
-                      <Row>
-                        <InputGroup>
-                          <label htmlFor="zipCode">Zip code:</label>
-                          <InputMask
-                            mask="99999-999"
-                            placeholder="00000-000"
-                            id="zipCode"
-                            type="text"
-                            name="zipCode"
-                            value={form.values.zipCode}
-                            onChange={form.handleChange}
-                            onBlur={form.handleBlur}
-                            className={
-                              checkInputHasError('zipCode') ? 'error' : ''
-                            }
-                          />
-                        </InputGroup>
-                        <InputGroup>
-                          <label htmlFor="addressNumber">Address number:</label>
+                      <div className="inputsDiv">
+                        <S.InputGroup>
+                          <label htmlFor="deliveryName">
+                            Who will receive?
+                          </label>
                           <input
-                            id="addressNumber"
-                            placeholder="0000"
+                            id="deliveryName"
+                            placeholder="Name"
                             type="text"
-                            name="addressNumber"
-                            value={form.values.addressNumber}
+                            name="deliveryName"
+                            value={form.values.deliveryName}
                             onChange={form.handleChange}
                             onBlur={form.handleBlur}
                             className={
-                              checkInputHasError('addressNumber') ? 'error' : ''
+                              checkInputHasError('deliveryName') ? 'error' : ''
                             }
                           />
-                        </InputGroup>
-                      </Row>
-                      <InputGroup>
-                        <label htmlFor="complement">
-                          Complement (optional):
-                        </label>
-                        <input
-                          id="complement"
-                          placeholder="Commercial building, ..."
-                          name="complement"
-                          value={form.values.complement}
-                          onChange={form.handleChange}
-                          onBlur={form.handleBlur}
-                          className={
-                            checkInputHasError('complement') ? 'error' : ''
-                          }
-                        />
-                      </InputGroup>
+                        </S.InputGroup>
+                        <S.InputGroup>
+                          <label htmlFor="address">Address:</label>
+                          <input
+                            id="address"
+                            placeholder="Street / avenue"
+                            type="text"
+                            name="address"
+                            value={form.values.address}
+                            onChange={form.handleChange}
+                            onBlur={form.handleBlur}
+                            className={
+                              checkInputHasError('address') ? 'error' : ''
+                            }
+                          />
+                        </S.InputGroup>
+                        <S.InputGroup>
+                          <label htmlFor="city">City:</label>
+                          <input
+                            id="city"
+                            placeholder="City"
+                            type="text"
+                            name="city"
+                            value={form.values.city}
+                            onChange={form.handleChange}
+                            onBlur={form.handleBlur}
+                            className={
+                              checkInputHasError('city') ? 'error' : ''
+                            }
+                          />
+                        </S.InputGroup>
+                        <S.Row>
+                          <S.InputGroup>
+                            <label htmlFor="zipCode">Zip code:</label>
+                            <InputMask
+                              mask="99999-999"
+                              placeholder="00000-000"
+                              id="zipCode"
+                              type="text"
+                              name="zipCode"
+                              value={form.values.zipCode}
+                              onChange={form.handleChange}
+                              onBlur={form.handleBlur}
+                              className={
+                                checkInputHasError('zipCode') ? 'error' : ''
+                              }
+                            />
+                          </S.InputGroup>
+                          <S.InputGroup>
+                            <label htmlFor="addressNumber">
+                              Address number:
+                            </label>
+                            <input
+                              id="addressNumber"
+                              placeholder="0000"
+                              type="text"
+                              name="addressNumber"
+                              value={form.values.addressNumber}
+                              onChange={form.handleChange}
+                              onBlur={form.handleBlur}
+                              className={
+                                checkInputHasError('addressNumber')
+                                  ? 'error'
+                                  : ''
+                              }
+                            />
+                          </S.InputGroup>
+                        </S.Row>
+                        <S.InputGroup>
+                          <label htmlFor="complement">
+                            Complement (optional):
+                          </label>
+                          <input
+                            id="complement"
+                            placeholder="Commercial building, ..."
+                            name="complement"
+                            value={form.values.complement}
+                            onChange={form.handleChange}
+                            onBlur={form.handleBlur}
+                            className={
+                              checkInputHasError('complement') ? 'error' : ''
+                            }
+                          />
+                        </S.InputGroup>
+                      </div>
                       <Button
                         type="button"
                         title="Proceed to payment"
@@ -358,86 +357,90 @@ const Cart = () => {
                       <h3>
                         Payment - Total amount {priceFormat(getTotalPrice())}
                       </h3>
-                      <InputGroup>
-                        <label htmlFor="cardOwner">Card holder:</label>
-                        <input
-                          id="cardOwner"
-                          placeholder="Name in the card"
-                          name="cardOwner"
-                          value={form.values.cardOwner}
-                          onChange={form.handleChange}
-                          onBlur={form.handleBlur}
-                          className={
-                            checkInputHasError('cardOwner') ? 'error' : ''
-                          }
-                        />
-                      </InputGroup>
-                      <Row>
-                        <InputGroup>
-                          <label htmlFor="cardNumber">Card number:</label>
-                          <InputMask
-                            mask="9999 9999 9999 9999"
-                            placeholder="0000 0000 0000 0000"
-                            id="cardNumber"
-                            name="cardNumber"
-                            value={form.values.cardNumber}
+                      <div className="inputsDiv">
+                        <S.InputGroup>
+                          <label htmlFor="cardOwner">Card holder:</label>
+                          <input
+                            id="cardOwner"
+                            placeholder="Name in the card"
+                            name="cardOwner"
+                            value={form.values.cardOwner}
                             onChange={form.handleChange}
                             onBlur={form.handleBlur}
                             className={
-                              checkInputHasError('cardNumber') ? 'error' : ''
+                              checkInputHasError('cardOwner') ? 'error' : ''
                             }
                           />
-                        </InputGroup>
-                        <InputGroup maxWidth="86px">
-                          <label htmlFor="securityNumber">CVV:</label>
-                          <InputMask
-                            mask="999"
-                            placeholder="000"
-                            id="securityNumber"
-                            name="securityNumber"
-                            value={form.values.securityNumber}
-                            onChange={form.handleChange}
-                            onBlur={form.handleBlur}
-                            className={
-                              checkInputHasError('securityNumber')
-                                ? 'error'
-                                : ''
-                            }
-                          />
-                        </InputGroup>
-                      </Row>
-                      <Row>
-                        <InputGroup>
-                          <label htmlFor="expireMonth">Expiration month:</label>
-                          <InputMask
-                            mask="99"
-                            placeholder="00"
-                            id="expireMonth"
-                            name="expireMonth"
-                            value={form.values.expireMonth}
-                            onChange={form.handleChange}
-                            onBlur={form.handleBlur}
-                            className={
-                              checkInputHasError('expireMonth') ? 'error' : ''
-                            }
-                          />
-                        </InputGroup>
-                        <InputGroup>
-                          <label htmlFor="expireYear">Expiration year:</label>
-                          <InputMask
-                            mask="9999"
-                            placeholder="0000"
-                            id="expireYear"
-                            name="expireYear"
-                            value={form.values.expireYear}
-                            onChange={form.handleChange}
-                            onBlur={form.handleBlur}
-                            className={
-                              checkInputHasError('expireYear') ? 'error' : ''
-                            }
-                          />
-                        </InputGroup>
-                      </Row>
+                        </S.InputGroup>
+                        <S.Row>
+                          <S.InputGroup>
+                            <label htmlFor="cardNumber">Card number:</label>
+                            <InputMask
+                              mask="9999 9999 9999 9999"
+                              placeholder="0000 0000 0000 0000"
+                              id="cardNumber"
+                              name="cardNumber"
+                              value={form.values.cardNumber}
+                              onChange={form.handleChange}
+                              onBlur={form.handleBlur}
+                              className={
+                                checkInputHasError('cardNumber') ? 'error' : ''
+                              }
+                            />
+                          </S.InputGroup>
+                          <S.InputGroup maxWidth="86px">
+                            <label htmlFor="securityNumber">CVV:</label>
+                            <InputMask
+                              mask="999"
+                              placeholder="000"
+                              id="securityNumber"
+                              name="securityNumber"
+                              value={form.values.securityNumber}
+                              onChange={form.handleChange}
+                              onBlur={form.handleBlur}
+                              className={
+                                checkInputHasError('securityNumber')
+                                  ? 'error'
+                                  : ''
+                              }
+                            />
+                          </S.InputGroup>
+                        </S.Row>
+                        <S.Row>
+                          <S.InputGroup>
+                            <label htmlFor="expireMonth">
+                              Expiration month:
+                            </label>
+                            <InputMask
+                              mask="99"
+                              placeholder="00"
+                              id="expireMonth"
+                              name="expireMonth"
+                              value={form.values.expireMonth}
+                              onChange={form.handleChange}
+                              onBlur={form.handleBlur}
+                              className={
+                                checkInputHasError('expireMonth') ? 'error' : ''
+                              }
+                            />
+                          </S.InputGroup>
+                          <S.InputGroup>
+                            <label htmlFor="expireYear">Expiration year:</label>
+                            <InputMask
+                              mask="9999"
+                              placeholder="0000"
+                              id="expireYear"
+                              name="expireYear"
+                              value={form.values.expireYear}
+                              onChange={form.handleChange}
+                              onBlur={form.handleBlur}
+                              className={
+                                checkInputHasError('expireYear') ? 'error' : ''
+                              }
+                            />
+                          </S.InputGroup>
+                        </S.Row>
+                      </div>
                       <Button type="submit" title="Finish order">
                         Finish order
                       </Button>
@@ -450,13 +453,13 @@ const Cart = () => {
                       </Button>
                     </>
                   )}
-                </CheckoutForm>
+                </S.CheckoutForm>
               </>
             )}
           </>
         )}
-      </Sidebar>
-    </CartContainer>
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 

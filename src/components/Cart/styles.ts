@@ -127,15 +127,15 @@ export const CheckoutForm = styled.form`
     color: ${Colors.offwhite};
     margin-bottom: 16px;
   }
+
+  .inputsDiv {
+    margin-bottom: 24px;
+  }
 `
 
 export const Row = styled.div`
   display: flex;
   column-gap: 34px;
-
-  &.margin-bottom {
-    margin-bottom: 24px;
-  }
 `
 
 export const InputGroup = styled.div<Width>`

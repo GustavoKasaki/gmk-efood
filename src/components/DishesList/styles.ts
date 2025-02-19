@@ -13,7 +13,6 @@ export const List = styled.ul`
 `
 
 export const Item = styled.li`
-  margin-right: 16px;
   position: relative;
 `
 

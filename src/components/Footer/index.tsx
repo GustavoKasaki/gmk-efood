@@ -1,46 +1,40 @@
-import {
-  FooterBar,
-  FooterDisclaimer,
-  FooterLink,
-  FooterLinks,
-  Logo
-} from './styles'
-
 import logo from '../../assets/images/logo.png'
 import instagram from '../../assets/images/instagram.svg'
 import facebook from '../../assets/images/facebook.svg'
 import xSocial from '../../assets/images/x.svg'
 
+import * as S from './styles'
+
 const Footer = () => (
-  <FooterBar>
+  <S.FooterBar>
     <div className="container">
-      <Logo to={'/'}>
+      <S.Logo to={'/'}>
         <img src={logo} />
-      </Logo>
-      <FooterLinks>
-        <FooterLink>
+      </S.Logo>
+      <S.FooterLinks>
+        <S.FooterLink>
           <a href="">
             <img src={instagram} alt="Instagram" />
           </a>
-        </FooterLink>
-        <FooterLink>
+        </S.FooterLink>
+        <S.FooterLink>
           <a href="">
             <img src={facebook} alt="Facebook" />
           </a>
-        </FooterLink>
-        <FooterLink>
+        </S.FooterLink>
+        <S.FooterLink>
           <a href="">
             <img src={xSocial} alt="X" />
           </a>
-        </FooterLink>
-      </FooterLinks>
-      <FooterDisclaimer>
+        </S.FooterLink>
+      </S.FooterLinks>
+      <S.FooterDisclaimer>
         The efood platform is used to promote establishments. Responsibility for
         delivery and product quality lies entirely with the contracted
         establishment.
-      </FooterDisclaimer>
+      </S.FooterDisclaimer>
     </div>
-  </FooterBar>
+  </S.FooterBar>
 )
 
 export default Footer

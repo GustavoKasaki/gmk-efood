@@ -4,17 +4,9 @@ import { useDispatch } from 'react-redux'
 import { add, DishType, open } from '../../store/reducers/cart'
 
 import close from '../../assets/images/close.png'
-
 import Dish from '../Dish'
-import {
-  CloseBtn,
-  Item,
-  List,
-  Modal,
-  ModalContent,
-  ModalInfo,
-  Section
-} from './styles'
+
+import * as S from './styles'
 
 type Props = {
   restaurant: RestaurantsType
@@ -59,28 +51,28 @@ const DishesList = ({ restaurant }: Props) => {
 
   return (
     <>
-      <Section>
+      <S.Section>
         <div className="container">
-          <List>
+          <S.List>
             {restaurant.cardapio.map((dish) => (
-              <Item key={dish.id}>
+              <S.Item key={dish.id}>
                 <Dish
                   image={dish.foto}
                   title={dish.nome}
                   description={dish.descricao}
                   addToCart={() => openModal(dish)}
                 />
-              </Item>
+              </S.Item>
             ))}
-          </List>
+          </S.List>
         </div>
-      </Section>
+      </S.Section>
 
       {modal.isVisible && modal.dish && (
-        <Modal className="visible">
-          <ModalContent className="container">
+        <S.Modal className="visible">
+          <S.ModalContent className="container">
             <img src={modal.dish.foto} alt={modal.dish.nome} />
-            <ModalInfo>
+            <S.ModalInfo>
               <h4>{modal.dish.nome}</h4>
               <p>{modal.dish.descricao}</p>
               <p>{`Serve ${modal.dish.porcao}`}</p>
@@ -94,11 +86,11 @@ const DishesList = ({ restaurant }: Props) => {
               >
                 Add to cart - <span>{priceFormat(modal.dish.preco)}</span>
               </button>
-              <CloseBtn src={close} alt="Close" onClick={closeModal} />
-            </ModalInfo>
-          </ModalContent>
+              <S.CloseBtn src={close} alt="Close" onClick={closeModal} />
+            </S.ModalInfo>
+          </S.ModalContent>
           <div className="overlay" onClick={closeModal}></div>
-        </Modal>
+        </S.Modal>
       )}
     </>
   )

@@ -2,7 +2,7 @@ import star from '../../assets/images/star.png'
 import Button from '../Button'
 import Tag from '../Tag'
 
-import { Card, CardContent, CardDescription, CardTitle, Infos } from './styles'
+import * as S from './styles'
 
 type Props = {
   category: string
@@ -36,26 +36,26 @@ const Restaurant = ({
   isHot
 }: Props) => {
   return (
-    <Card>
+    <S.Card>
       <img src={image} alt={title} />
-      <Infos>
+      <S.Infos>
         {isHot ? <Tag>Hot</Tag> : ''}
         <Tag>{capitalizeFirstLetter(category)}</Tag>
-      </Infos>
-      <CardContent>
-        <CardTitle>
+      </S.Infos>
+      <S.CardContent>
+        <S.CardTitle>
           <p>{title}</p>
           <div className="rating">
             <p>{rating}</p>
             <img src={star} alt="star" />
           </div>
-        </CardTitle>
-        <CardDescription>{getDescription(description)}</CardDescription>
+        </S.CardTitle>
+        <S.CardDescription>{getDescription(description)}</S.CardDescription>
         <Button to={`/restaurant/${id}`} type="link" title={title}>
           Learn more
         </Button>
-      </CardContent>
-    </Card>
+      </S.CardContent>
+    </S.Card>
   )
 }
 
