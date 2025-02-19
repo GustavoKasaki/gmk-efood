@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Colors } from '../../styles'
+import { breakpoints, Colors } from '../../styles'
 
 export const FooterBar = styled.footer`
   padding: 40px 0;
@@ -38,4 +38,9 @@ export const FooterDisclaimer = styled.p`
   width: 480px;
   text-align: center;
   font-size: 10px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    margin: 40px auto 0 auto;
+  }
 `

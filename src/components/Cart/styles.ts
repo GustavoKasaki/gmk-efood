@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import trash from '../../assets/images/trash.png'
 
-import { Colors } from '../../styles'
+import { breakpoints, Colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 import { TagContainer } from '../Tag/styles'
 
@@ -47,6 +47,16 @@ export const Sidebar = styled.aside`
     max-width: 100%;
     width: 100%;
     margin-bottom: 8px;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    .mobile-button {
+      display: none;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
   }
 `
 
@@ -177,6 +187,10 @@ export const OrderMessage = styled.div`
     color: ${Colors.offwhite};
     font-size: 14px;
     margin-bottom: 16px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    text-align: center;
   }
 `
 

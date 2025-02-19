@@ -226,6 +226,15 @@ const Cart = () => {
                     >
                       Proceed to checkout
                     </Button>
+                    <div className="mobile-button">
+                      <Button
+                        type="button"
+                        title="Close cart"
+                        onClick={closeCart}
+                      >
+                        Close cart
+                      </Button>
+                    </div>
                   </>
                 )}
 
