@@ -6,20 +6,22 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import DishesList from '../components/DishesList'
 import Banner from '../components/Banner'
+import Loader from '../components/Loader'
 
 const RestaurantPage = () => {
   const { id } = useParams()
-  const { data: restaurant } = useGetRestaurantsMenuQuery(id!)
+  const { data: restaurant, isLoading: isLoadingDishes } =
+    useGetRestaurantsMenuQuery(id!)
 
   if (!restaurant) {
-    return <h3>Loading...</h3>
+    return <Loader />
   }
 
   return (
     <>
       <Header showCart={true} />
-      <Banner restaurant={restaurant} />
-      <DishesList restaurant={restaurant} />
+      <Banner restaurant={restaurant} isLoading={isLoadingDishes} />
+      <DishesList restaurant={restaurant} isLoading={isLoadingDishes} />
       <Footer />
     </>
   )

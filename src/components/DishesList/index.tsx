@@ -7,9 +7,11 @@ import close from '../../assets/images/close.png'
 import Dish from '../Dish'
 
 import * as S from './styles'
+import Loader from '../Loader'
 
 type Props = {
   restaurant: RestaurantsType
+  isLoading: boolean
 }
 
 interface ModalState {
@@ -24,7 +26,7 @@ export const priceFormat = (price = 0) => {
   }).format(price)
 }
 
-const DishesList = ({ restaurant }: Props) => {
+const DishesList = ({ restaurant, isLoading }: Props) => {
   const dispatch = useDispatch()
 
   const addToCart = (dish: DishType) => {
@@ -47,6 +49,10 @@ const DishesList = ({ restaurant }: Props) => {
     setModal({
       isVisible: false
     })
+  }
+
+  if (isLoading) {
+    return <Loader />
   }
 
   return (

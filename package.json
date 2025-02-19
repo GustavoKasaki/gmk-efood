@@ -60,6 +60,7 @@
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
     "react-router-dom": "^7.1.3",
+    "react-spinners": "^0.15.0",
     "styled-components": "^6.1.14",
     "typescript-eslint": "^8.22.0"
   }

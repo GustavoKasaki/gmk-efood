@@ -1,13 +1,15 @@
+import Loader from '../Loader'
 import Restaurant from '../Restaurant'
 import { List, Section } from './styles'
 
 type Props = {
   restaurant: RestaurantsType[]
+  isLoading: boolean
 }
 
-const RestaurantList = ({ restaurant }: Props) => {
-  if (!restaurant) {
-    return <h3>Loading...</h3>
+const RestaurantList = ({ restaurant, isLoading }: Props) => {
+  if (isLoading) {
+    return <Loader />
   }
 
   return (
