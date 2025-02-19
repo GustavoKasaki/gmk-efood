@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { FormikTouched, useFormik } from 'formik'
+import InputMask from 'react-input-mask'
 import * as Yup from 'yup'
 
 import { RootReducer } from '../../store'
@@ -247,6 +248,7 @@ const Cart = () => {
                         <label htmlFor="deliveryName">Who will receive?</label>
                         <input
                           id="deliveryName"
+                          placeholder="Name"
                           type="text"
                           name="deliveryName"
                           value={form.values.deliveryName}
@@ -261,6 +263,7 @@ const Cart = () => {
                         <label htmlFor="address">Address:</label>
                         <input
                           id="address"
+                          placeholder="Street / avenue"
                           type="text"
                           name="address"
                           value={form.values.address}
@@ -275,6 +278,7 @@ const Cart = () => {
                         <label htmlFor="city">City:</label>
                         <input
                           id="city"
+                          placeholder="City"
                           type="text"
                           name="city"
                           value={form.values.city}
@@ -286,7 +290,9 @@ const Cart = () => {
                       <Row>
                         <InputGroup>
                           <label htmlFor="zipCode">Zip code:</label>
-                          <input
+                          <InputMask
+                            mask="99999-999"
+                            placeholder="00000-000"
                             id="zipCode"
                             type="text"
                             name="zipCode"
@@ -302,6 +308,7 @@ const Cart = () => {
                           <label htmlFor="addressNumber">Address number:</label>
                           <input
                             id="addressNumber"
+                            placeholder="0000"
                             type="text"
                             name="addressNumber"
                             value={form.values.addressNumber}
@@ -319,6 +326,7 @@ const Cart = () => {
                         </label>
                         <input
                           id="complement"
+                          placeholder="Commercial building, ..."
                           name="complement"
                           value={form.values.complement}
                           onChange={form.handleChange}
@@ -354,6 +362,7 @@ const Cart = () => {
                         <label htmlFor="cardOwner">Card holder:</label>
                         <input
                           id="cardOwner"
+                          placeholder="Name in the card"
                           name="cardOwner"
                           value={form.values.cardOwner}
                           onChange={form.handleChange}
@@ -366,7 +375,9 @@ const Cart = () => {
                       <Row>
                         <InputGroup>
                           <label htmlFor="cardNumber">Card number:</label>
-                          <input
+                          <InputMask
+                            mask="9999 9999 9999 9999"
+                            placeholder="0000 0000 0000 0000"
                             id="cardNumber"
                             name="cardNumber"
                             value={form.values.cardNumber}
@@ -379,7 +390,9 @@ const Cart = () => {
                         </InputGroup>
                         <InputGroup maxWidth="86px">
                           <label htmlFor="securityNumber">CVV:</label>
-                          <input
+                          <InputMask
+                            mask="999"
+                            placeholder="000"
                             id="securityNumber"
                             name="securityNumber"
                             value={form.values.securityNumber}
@@ -396,7 +409,9 @@ const Cart = () => {
                       <Row>
                         <InputGroup>
                           <label htmlFor="expireMonth">Expiration month:</label>
-                          <input
+                          <InputMask
+                            mask="99"
+                            placeholder="00"
                             id="expireMonth"
                             name="expireMonth"
                             value={form.values.expireMonth}
@@ -409,7 +424,9 @@ const Cart = () => {
                         </InputGroup>
                         <InputGroup>
                           <label htmlFor="expireYear">Expiration year:</label>
-                          <input
+                          <InputMask
+                            mask="9999"
+                            placeholder="0000"
                             id="expireYear"
                             name="expireYear"
                             value={form.values.expireYear}
