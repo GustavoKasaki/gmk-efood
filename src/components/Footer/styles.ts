@@ -21,15 +21,23 @@ export const Logo = styled(Link)`
 export const FooterLinks = styled.ul`
   font-size: 36px;
   font-weight: bold;
-  width: 88px;
+  column-gap: 8px;
   margin-top: 32px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    column-gap: 12px;
+  }
 `
 
 export const FooterLink = styled.li`
   img {
     width: 24px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 32px;
+    }
   }
 `
 
